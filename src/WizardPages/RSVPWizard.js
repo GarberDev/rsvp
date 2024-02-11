@@ -19,6 +19,7 @@ const RSVPWizard = () => {
   const [names, setNames] = useState([{ name: "", isAdult: true }]);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const [isSaving, setIsSaving] = useState(false);
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -50,13 +51,11 @@ const RSVPWizard = () => {
       names,
       email,
     };
-
-    // Sending data to Google Sheets
     fetch(
       "https://script.google.com/macros/s/AKfycbzzf9IXQUL0-KBxgXFk2YagMecKSUikSbNWethqLt-TOlCr3GC9e-T4Cq_rS7oGhada/exec",
       {
         method: "POST",
-        mode: "no-cors", // Required for CORS policies in Google Apps Script
+        mode: "no-cors",
         redirect: "follow",
         referrerPolicy: "no-referrer",
         contentType: "application/json",
@@ -81,7 +80,6 @@ const RSVPWizard = () => {
           const templateId = "template_vvwgrrm";
           const userId = "fTLbPrJxkPeJbTBYv";
 
-          // Send email using EmailJS
           emailjs
             .send(serviceId, templateId, templateParams, userId)
             .then((emailResponse) => {
@@ -92,11 +90,13 @@ const RSVPWizard = () => {
             );
         }
 
-        // Redirect to home page after submitting the form and optionally sending the email
         navigate("/");
       })
       .catch((error) => {
         console.error("Error:", error);
+      })
+      .finally(() => {
+        setIsSaving(false);
       });
   };
 
@@ -108,7 +108,7 @@ const RSVPWizard = () => {
             backgroundImage: `url(${backgroundImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            minHeight: "100vh", // Ensure it covers the full viewport height
+            minHeight: "100vh",
           }}
         >
           <Paper
@@ -148,7 +148,7 @@ const RSVPWizard = () => {
             backgroundImage: `url(${backgroundImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            minHeight: "100vh", // Ensure it covers the full viewport height
+            minHeight: "100vh",
           }}
         >
           <Paper
@@ -201,7 +201,7 @@ const RSVPWizard = () => {
             backgroundImage: `url(${backgroundImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            minHeight: "100vh", // Ensure it covers the full viewport height
+            minHeight: "100vh",
           }}
         >
           <Paper
@@ -223,8 +223,12 @@ const RSVPWizard = () => {
                 <Button variant="contained" onClick={prevStep}>
                   Back
                 </Button>
-                <Button variant="contained" onClick={handleSubmit}>
-                  Confirm / Home
+                <Button
+                  variant="contained"
+                  onClick={handleSubmit}
+                  disabled={isSaving}
+                >
+                  {isSaving ? "Saving..." : "Confirm / Home"}
                 </Button>
               </Box>
             </Container>
