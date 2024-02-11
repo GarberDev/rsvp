@@ -210,10 +210,10 @@ const RSVPWizard = () => {
           >
             <Container maxWidth="sm">
               <Typography align="center" variant="h6">
-                Email Confirmation *not required*
+                Email Confirmation/Reminder
               </Typography>
               <TextField
-                label="Email"
+                label="* not required *"
                 fullWidth
                 margin="normal"
                 value={email}
@@ -224,7 +224,7 @@ const RSVPWizard = () => {
                   Back
                 </Button>
                 <Button variant="contained" onClick={handleSubmit}>
-                  Confirm
+                  Confirm / Home
                 </Button>
               </Box>
             </Container>

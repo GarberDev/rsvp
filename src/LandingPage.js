@@ -25,10 +25,10 @@ const LandingPage = () => {
   return (
     <div
       style={{
-        backgroundImage: `url('/wallpaper_paw.png')`, // Accessing image from the public folder
+        backgroundImage: `url('/wallpaper_paw.png')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "100vh", // This sets the height to full viewport height
+        height: "100vh",
         width: "100%",
         position: "absolute",
       }}
@@ -62,7 +62,6 @@ const LandingPage = () => {
         <Button variant="contained" color="primary" onClick={handleRSVPClick}>
           Click Here to RSVP
         </Button>
-        {/* Add to Google Calendar Button */}
         <Box mt={2} display="flex" gap={2}>
           <Button
             variant="outlined"
@@ -73,7 +72,6 @@ const LandingPage = () => {
           >
             Google Calendar
           </Button>
-          {/* Open in Maps Button */}
           <Button
             variant="outlined"
             color="secondary"
