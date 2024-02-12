@@ -46,6 +46,7 @@ const RSVPWizard = () => {
     setNames(updatedNames);
   };
   const handleSubmit = () => {
+    setIsSaving(true);
     const formData = {
       numberOfPeople,
       names,
@@ -210,10 +211,10 @@ const RSVPWizard = () => {
           >
             <Container maxWidth="sm">
               <Typography align="center" variant="h6">
-                Email Confirmation/Reminder
+                Email Confirmation/Reminder (Optional)
               </Typography>
               <TextField
-                label="* not required *"
+                label="Enter Email Address"
                 fullWidth
                 margin="normal"
                 value={email}

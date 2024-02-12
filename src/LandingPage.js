@@ -85,12 +85,16 @@ const LandingPage = () => {
         <Typography paragraph mt={2}>
           In lieu of gifts, we welcome you to bring your child's favorite book
           as a gift. Aurora's passion for reading will be ignited by the stories
-          in the books you give her.
+          in the book you give her.
         </Typography>
         <Typography paragraph>
           We eagerly await your company to fill the day with laughter, stories,
           and the joy of togetherness.
         </Typography>
+        <Typography paragraph>
+          <strong>RSVP by </strong>March 2nd, 2024
+        </Typography>
+        <Typography paragraph>Pizza and cake will be served.</Typography>
       </Paper>
     </div>
   );
