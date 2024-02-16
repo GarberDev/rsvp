@@ -38,25 +38,7 @@ function TrackPageViews() {
 function App() {
   return (
     <Router>
-      <TrackPageViews />{" "}
-      {/* Component to haimport React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "./LandingPage";
-import RSVPWizard from "./WizardPages/RSVPWizard";
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} exact />
-        <Route path="/rsvp" element={<RSVPWizard />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
-ndle page view tracking */}
+      <TrackPageViews /> {/* Component to handle page view tracking */}
       <Routes>
         <Route path="/" element={<LandingPage />} exact />
         <Route path="/rsvp" element={<RSVPWizard />} />
