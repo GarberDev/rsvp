@@ -92,7 +92,7 @@ const LandingPage = () => {
           and the joy of togetherness.
         </Typography>
         <Typography paragraph>
-          <strong>RSVP by </strong>March 2nd, 2024
+          <strong>RSVP ANYTIME! </strong>
         </Typography>
         <Typography paragraph>Pizza and cake will be served.</Typography>
       </Paper>
